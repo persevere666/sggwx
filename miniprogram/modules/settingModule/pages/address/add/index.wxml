@@ -1,0 +1,100 @@
+<view class="container address">
+  <form bindsubmit="saveAddrssForm">
+    <!-- 地址信息 -->
+    <view class="address-info">
+      <!-- 收货人 -->
+      <view class="item">
+        <text class="label">收货人</text>
+        <input
+          name="name"
+          value="{{ name }}"
+          placeholder-style="color: #969799"
+          placeholder="请输入收货人姓名"
+        />
+      </view>
+
+      <!-- 手机号 -->
+      <view class="item">
+        <text class="label">手机号码</text>
+        <input
+          name="phone"
+          value="{{ phone }}"
+          placeholder-style="color: #969799"
+          placeholder="请输入收货人手机号"
+        />
+      </view>
+
+      <!-- 省市县 -->
+      <view class="item">
+        <text class="label">所在地区</text>
+
+        <picker
+          mode="region"
+          value="{{ [provinceName, cityName, districtName] }}"
+          bindchange="onAddressChange"
+        >
+          <view wx:if="{{ regionValue }}" class="region">
+            {{ regionValue }}
+          </view>
+          <view wx:else class="placeholder"> 请填写收货人所在城市</view>
+        </picker>
+
+        <view class="location" bindtap="onLocation">
+          <van-icon name="location-o" color="#777" />
+          <text>定位</text>
+        </view>
+      </view>
+
+      <!-- 详细地址 -->
+      <view class="item">
+        <text class="label">详细地址</text>
+        <textarea
+          auto-height
+          value="{{ fullAddress }}"
+          name="address"
+          placeholder-style="color: #969799"
+          placeholder="门牌号(例：5号楼1单元203室)"
+        />
+      </view>
+
+      <!-- 标签 -->
+      <!-- <view class="item item-tag">
+        <text class="label">标签</text>
+
+        <view
+          wx:for="{{ ['家', '公司'] }}"
+          wx:key="index"
+          bindtap="selectTag"
+          data-tagname="{{ item }}"
+          data-index="{{ index }}"
+          class="tag-name {{ activeIndex === index ? 'active' : '' }}"
+        >
+          {{ item }}
+        </view>
+      </view> -->
+
+      <!-- 设置默认地址 -->
+      <view class="item">
+        <text class="label">设置默认地址</text>
+        <switch
+          name="isDefault"
+          checked="{{ isDefault === 1 }}"
+          color="#f3514f"
+          class="checkbox"
+        />
+      </view>
+    </view>
+
+    <view wx:if="{{ loading && !addressData.length }}" class="blank"
+      >收货地址为空~
+    </view>
+
+    <!-- 提交按钮 -->
+    <button form-type="submit" class="button">保存</button>
+
+    <!-- wx.chooseAddress -->
+    <button form-type="submit" class="button" type="warn" plain>
+      导入微信地址
+    </button>
+  </form>
+</view>

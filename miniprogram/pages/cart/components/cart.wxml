@@ -1,0 +1,148 @@
+<!--pages/ceremony/ceremony.wxml-->
+<view wx:if="{{ cartList.length }}" class="container goods-wrap">
+  <view class="cart-wrap">
+    <view class="goods-item">
+      <van-swipe-cell class="goods-swipe" right-width="{{ 65 }}">
+        <view class="goods-info">
+          <view class="left">
+            <van-checkbox
+              checked-color="#FA4126"
+              value="{{ checked }}"
+            ></van-checkbox>
+          </view>
+          <view class="mid">
+            <image class="img" src="/assets/images/floor-img.jpg" />
+          </view>
+          <view class="right">
+            <view class="title">
+              腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率
+            </view>
+            <view class="buy">
+              <view class="price">
+                <view class="symbol">¥</view>
+                <view class="num">99.00</view>
+              </view>
+              <view class="buy-btn">
+                <van-stepper value="{{ price }}" />
+              </view>
+            </view>
+          </view>
+        </view>
+        <view slot="right" class="van-swipe-cell__right">删除</view>
+      </van-swipe-cell>
+    </view>
+
+    <view class="goods-item">
+      <van-swipe-cell class="goods-swipe" right-width="{{ 65 }}">
+        <view class="goods-info">
+          <view class="left">
+            <van-checkbox
+              checked-color="#FA4126"
+              value="{{ true }}"
+            ></van-checkbox>
+          </view>
+          <view class="mid">
+            <image class="img" src="/assets/images/floor-img.jpg" />
+          </view>
+          <view class="right">
+            <view class="title">
+              腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率
+            </view>
+            <view class="buy">
+              <view class="price">
+                <view class="symbol">¥</view>
+                <view class="num">99.00</view>
+              </view>
+              <view class="buy-btn">
+                <van-stepper value="{{ price }}" />
+              </view>
+            </view>
+          </view>
+        </view>
+        <view slot="right" class="van-swipe-cell__right">删除</view>
+      </van-swipe-cell>
+    </view>
+
+    <view class="goods-item">
+      <van-swipe-cell class="goods-swipe" right-width="{{ 65 }}">
+        <view class="goods-info">
+          <view class="left">
+            <van-checkbox
+              checked-color="#FA4126"
+              value="{{ checked }}"
+            ></van-checkbox>
+          </view>
+          <view class="mid">
+            <image class="img" src="/assets/images/floor-img.jpg" />
+          </view>
+          <view class="right">
+            <view class="title">
+              腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率
+            </view>
+            <view class="buy">
+              <view class="price">
+                <view class="symbol">¥</view>
+                <view class="num">99.00</view>
+              </view>
+              <view class="buy-btn">
+                <van-stepper value="{{ price }}" />
+              </view>
+            </view>
+          </view>
+        </view>
+        <view slot="right" class="van-swipe-cell__right">删除</view>
+      </van-swipe-cell>
+    </view>
+
+    <view class="goods-item">
+      <van-swipe-cell class="goods-swipe" right-width="{{ 65 }}">
+        <view class="goods-info">
+          <view class="left">
+            <van-checkbox
+              checked-color="#FA4126"
+              value="{{ checked }}"
+            ></van-checkbox>
+          </view>
+          <view class="mid">
+            <image class="img" src="/assets/images/floor-img.jpg" />
+          </view>
+          <view class="right">
+            <view class="title">
+              腾讯极光盒子4智能网络电视机顶盒6K千兆网络机顶盒4K高分辨率
+            </view>
+            <view class="buy">
+              <view class="price">
+                <view class="symbol">¥</view>
+                <view class="num">99.00</view>
+              </view>
+              <view class="buy-btn">
+                <van-stepper value="{{ price }}" />
+              </view>
+            </view>
+          </view>
+        </view>
+        <view slot="right" class="van-swipe-cell__right">删除</view>
+      </van-swipe-cell>
+    </view>
+  </view>
+
+  <!-- 底部工具栏 -->
+  <van-submit-bar price="{{ 3050 }}" button-text="去结算" tip="{{ true }}">
+    <van-checkbox value="{{ true }}" checked-color="#FA4126">
+      全选
+    </van-checkbox>
+  </van-submit-bar>
+</view>
+
+<van-empty wx:else description="{{ emptyDes }}">
+  <navigator url="/pages/login/login">
+    <van-button
+      wx:if="{{ !this.data.token }}"
+      round
+      type="danger"
+      class="bottom-button"
+    >
+      登录
+    </van-button>
+  </navigator>
+</van-empty>

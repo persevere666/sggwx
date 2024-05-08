@@ -1,0 +1,5 @@
+<!--pages/mobx/mobx.wxml-->
+
+<view>{{numA}} + {{numB}} = {{sum}}</view>
+
+<button type="warn" plain="true" bind:tap="update">更新Store中的数据</button>

@@ -1,0 +1,5 @@
+<!--pages/test/test.wxml-->
+
+<button type="warn" plain="true" bindtap="handler" >这是一个button</button>
+
+<button type="primary" plain="true" bindtap="allHandler" >测试并发请求</button>
