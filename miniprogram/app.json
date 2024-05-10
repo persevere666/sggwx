@@ -12,7 +12,9 @@
     "pages/settings/settings",
     "pages/test/test",
     "pages/mobx/mobx",
-    "pages/computed/computed"
+    "pages/computed/computed",
+    "pages/location/location",
+    "pages/validator/validator"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -84,5 +86,22 @@
         "pages/profile/profile"
       ]
     }
-  ]
+  ],
+  "preloadRule": {
+    "pages/settings/settings": {
+      "network": "all",
+      "packages": [
+        "settingModule"
+      ]
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseLocation"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "收集用户地理信息是为了用于填写收货地址"
+    }
+  }
 }

@@ -36,7 +36,7 @@
           <view wx:if="{{ regionValue }}" class="region">
             {{ regionValue }}
           </view>
-          <view wx:else class="placeholder"> 请填写收货人所在城市</view>
+          <view wx:else class="placeholder">请填写收货人所在城市</view>
         </picker>
 
         <view class="location" bindtap="onLocation">
@@ -50,7 +50,7 @@
         <text class="label">详细地址</text>
         <textarea
           auto-height
-          value="{{ fullAddress }}"
+          value="{{ address }}"
           name="address"
           placeholder-style="color: #969799"
           placeholder="门牌号(例：5号楼1单元203室)"
@@ -85,8 +85,8 @@
       </view>
     </view>
 
-    <view wx:if="{{ loading && !addressData.length }}" class="blank"
-      >收货地址为空~
+    <view wx:if="{{ loading && !addressData.length }}" class="blank">
+      收货地址为空~
     </view>
 
     <!-- 提交按钮 -->

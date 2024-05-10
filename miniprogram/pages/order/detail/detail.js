@@ -33,7 +33,7 @@ Page({
   // 跳转到收货地址
   toAddress() {
     wx.navigateTo({
-      url: '/pages/address/list/index'
+      url: '/modules/settingModule/pages/address/list/index'
     })
   },
 

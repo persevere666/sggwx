@@ -24,17 +24,21 @@ class WxRequest{
 
   request(options){
     if(options.method === 'UPLOAD'){
-      wx.uploadFile({
-        ...options,
-        success: (res) => {
-          res.data = JSON.parse(res.data)
-          const mergeRes = Object.assign({}, res, {config: options, isSuccess:true})
-          resolve(this.interceptors.response(mergeRes))
-        },
-        fail: (err) => {
-          const mergeErr = Object.assign({}, err, {config: options, isSuccess:false})
-          reject(this.interceptors.response(mergeErr))
-        }
+      options.url = this.defaults.baseURL + options.url
+      //console.log(options)
+      return new Promise((resolve, reject) => {
+        wx.uploadFile({
+          ...options,
+          success: (res) => {
+            res.data = JSON.parse(res.data)
+            const mergeRes = Object.assign({}, res, {config: options, isSuccess:true})
+            resolve(this.interceptors.response(mergeRes))
+          },
+          fail: (err) => {
+            const mergeErr = Object.assign({}, err, {config: options, isSuccess:false})
+            reject(this.interceptors.response(mergeErr))
+          }
+        })
       })
     }else{
       options.url = this.defaults.baseURL + options.url 
@@ -55,7 +59,6 @@ class WxRequest{
           fail: (err) => {
             const mergeErr = Object.assign({}, err, {config: options, isSuccess: false})
             reject(this.interceptors.response(mergeErr))
-
           },
           complete: () =>{
             this.queue.pop()
